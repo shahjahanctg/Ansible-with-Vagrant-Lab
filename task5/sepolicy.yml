@@ -1,0 +1,9 @@
+---
+- name: SELINUX Policy and Target Set
+  hosts: all
+  vars:
+    selinux_policy: targeted
+    selinux_state: enforcing
+
+  roles:
+    - linux-system-roles.selinux

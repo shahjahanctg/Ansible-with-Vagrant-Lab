@@ -1,0 +1,19 @@
+---
+- name: Modify File Content
+  hosts: all
+  tasks:
+    - name: Modify Dev Host Group
+      copy:
+        content: "Development Node"
+        dest: /etc/issue.net
+      when: "'dev' in group_names"
+    - name: Modify Test Host Group
+      copy:
+        content: "Test Node"
+        dest: /etc/issue.net
+      when: "'test' in group_names"
+    - name: Modify Prod Host Group
+      copy:
+        content: "Prod Node"
+        dest: /etc/issue.net
+      when: "'prod' in group_names"

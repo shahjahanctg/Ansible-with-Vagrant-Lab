@@ -1,0 +1,7 @@
+---
+# handlers file for apache
+- name: Restart httpd on index.html file changed
+  service:
+    name: httpd
+    state: restarted
+

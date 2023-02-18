@@ -1,0 +1,10 @@
+---
+- name: Timesync Configuration
+  hosts: all
+  vars:
+    timesync_ntp_server:
+      - hostname: 0.asia.pool.ntp.org
+        ibrust: yes
+    timesync_ntp_provider: chrony
+  roles:
+    - linux-system-roles.timesync

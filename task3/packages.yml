@@ -1,0 +1,25 @@
+---
+- name: Install Packages
+  hosts: dev,test,webservers
+  tasks:
+    - name: Install PHP and MariaDB
+      yum:
+        name: ['php', 'mariadb']
+        state: present
+
+- name: Install RPM Development Tools
+  hosts: test
+  tasks:
+    - name: Install RPM Development Tools in Test
+      yum:
+        name: '@Development Tools'
+        state: present
+
+- name: Update All Packages in Test Server
+  hosts: test
+  tasks:
+    - name: Update all packages in test server
+      yum:
+        name: '*'
+        state: latest  
+

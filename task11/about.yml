@@ -1,0 +1,58 @@
+---
+- name: Create Webdev directory and set permission
+  hosts: webservers
+  tasks:
+    - name: Create webdev directory
+      user:
+        name: webdev
+        state: present
+
+    - name: Install httpd and firewalld
+      yum:
+        name: "{{ item }}"
+        state: latest
+      loop:
+        - httpd
+        - firewalld
+
+    - name: Enable and Start httpd and firewalld service
+      service:
+        name: "{{ item }}"
+        enabled: yes
+        state: started
+      loop:
+        - httpd
+        - firewalld
+
+    - name: Allow http traffic in firewalld
+      firewalld:
+        service: http
+        state: enabled
+        permanent: yes
+        immediate: yes
+
+    - name: create directory webdev
+      file:
+        path: /webdev
+        owner: apache
+        group: apache
+        mode: "2775"
+        state: directory
+
+    - name: create symbolinc link
+      file:
+        src: /webdev
+        dest: /var/www/html/webdev
+        state: link
+
+    - name: Copy index.html file
+      copy:
+        content: "This is webdev content"
+        dest: /webdev/index.html
+
+    - name: Add webdev to /etc/fstab
+      lineinfile:
+        path: /etc/fstab
+        line: "UUID={{ ansible_mounts[0].uuid }} /webdev ext4 defaults,x-mount.mkdir=mode=2775,gid=webdav 0 2"
+        state: present
+        backup: yes

@@ -1,0 +1,23 @@
+[all:vars]
+ansible_user=curtis
+ansible_become=yes
+ansible_become_method=sudo
+ansible_connection=ssh
+ansible_become_pass=curtis
+
+[dev]
+node1 ansible_host=192.168.10.10
+
+[test]
+node5 ansible_host=192.168.10.14
+
+[balancers]
+node2 ansible_host=192.168.10.11
+
+[webservers]
+node3 ansible_host=192.168.10.12
+node4 ansible_host=192.168.10.13
+
+[prod:children]
+balancers
+webservers

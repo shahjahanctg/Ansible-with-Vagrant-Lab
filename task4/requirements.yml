@@ -1,0 +1,5 @@
+- name: Balancer
+  src: https://github.com/geerlingguy/ansible-role-haproxy.git
+- name: PHP info
+  src: https://github.com/geerlingguy/ansible-role-php.git
+  
