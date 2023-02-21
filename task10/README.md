@@ -1,7 +1,7 @@
-Manage files contents by issue.yml
+# Manage files contents by issue.yml
 
-- Replace all content of /etc/issue.net on all management hosts with the following:
+### Replace all content of /etc/issue.net on all management hosts with the following:
 
-  • If managed host is member of dev environment add Development Node
-  • If managed host is member of test environment add Test Node
-  • If managed host is member of prod add Prod Node
+  1. If managed host is member of dev environment add Development Node
+  2. If managed host is member of test environment add Test Node
+  3. If managed host is member of prod add Prod Node
