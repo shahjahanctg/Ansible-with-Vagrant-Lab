@@ -1,4 +1,4 @@
-#h1Ad-hoc Command
+# H1 Ad-hoc Command
 
 - using ansible adhoc, create a shell script called adhoc.sh to do the following on all managed nodes:
 
