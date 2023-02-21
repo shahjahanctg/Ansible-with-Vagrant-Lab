@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
   #config.vm.box = "centos.box"
 
   config.vm.define "node1" do |node1|
-	node1.vm.box = "centos.box"
+	      node1.vm.box = "centos.box"
 	node1.vm.network "private_network", ip: "192.168.10.10"
   end
 
