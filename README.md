@@ -14,4 +14,14 @@
   ansible --version
 
 ```
+# Install Vagrant in Ubuntu
 
+``` bash
+
+  sudo apt-get install vagrant
+  sudo apt-get install libvirt0
+  sudo apt-get install libvirt-daemon-system
+  sudo systemctl enable libvirtd.service
+  sudo systemctl start libvirtd.service
+
+```
