@@ -1,6 +1,6 @@
 # Ad-hoc Command
 
-- using ansible adhoc, create a shell script called adhoc.sh to do the following on all managed nodes:
+## Using ansible adhoc, create a shell script called adhoc.sh to do the following on all managed nodes:
 
 • add yum repository with the following information:
 
