@@ -10,7 +10,7 @@
 
     - name: Install RPM Development Tools in Test
       yum:
-        name: '@Development Tools'
+        name: '@RPM Development Tools'
         state: present
       when: "'test' in group_names"
 

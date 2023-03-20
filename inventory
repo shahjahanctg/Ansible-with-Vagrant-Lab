@@ -5,22 +5,18 @@ ansible_become_method=sudo
 ansible_connection=ssh
 ansible_become_pass=ansible
 
-[web1]
+[dev]
 web1 ansible_host=192.168.10.10
 
-[web2]
+[test]
 web2 ansible_host=192.168.10.11
 
-[lb]
+[balancer]
 lb ansible_host=192.168.10.12
 
-[db]
-db ansible_host=192.168.10.13
-
-[webservers]
-web1 ansible_host=192.168.10.12
+[prod]
+web1 ansible_host=192.168.10.11
 web2 ansible_host=192.168.10.13
 
-[prod:children]
-ls
-webservers
+[webservers:children]
+prod

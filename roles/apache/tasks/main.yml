@@ -26,7 +26,7 @@
 
 - name: Copy index.html package
   template:
-    src: /home/shahjahan/Downloads/vagrant/task5/index.html.j2
+    src: /home/shahjahan/Downloads/vagrant/rhel-ansible-exam/task5/index.html.j2
     dest: /var/www/html/index.html
     owner: apache
     group: apache

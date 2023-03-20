@@ -12,7 +12,7 @@
   tasks:
     - name: Install RPM Development Tools in Test
       yum:
-        name: '@Development Tools'
+        name: '@RPM Development Tools'
         state: present
 
 - name: Update All Packages in Test Server

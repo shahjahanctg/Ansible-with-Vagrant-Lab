@@ -2,7 +2,7 @@
 - name: Create Webdev directory and set permission
   hosts: webservers
   tasks:
-    - name: Create webdev directory
+    - name: Create webdev user
       user:
         name: webdev
         state: present
