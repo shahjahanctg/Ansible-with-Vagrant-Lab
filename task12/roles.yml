@@ -1,10 +1,33 @@
 ---
-- name: Apply balancer role to balancers
+- name: Use roles from Ansible Galaxy
   hosts: balancers
+  vars: 
+    haproxy_backend_servers:
+      - name: app1
+        address: 192.168.10.11:80
+      - name: app2
+        address: 192.168.10.13:80
   roles:
     - balancer
+  post_tasks:
+    - name: Start firewalld
+      service:
+        name: firewalld
+        state: started
+        enabled: yes
 
-- name: Apply phpinfo role to webservers
+    - name: Allow http in the firewall
+      firewalld:
+        service: http
+        state: enabled
+        permanent: yes
+        immediate: yes
+- name: Use roles from Ansible Galaxy
   hosts: webservers
   roles:
     - phpinfo
+  post_tasks:
+    - name: Copy hello.php file
+      template:
+        src: hello.php.j2
+        dest: /var/www/html/hello.php
